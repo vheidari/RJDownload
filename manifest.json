@@ -1,0 +1,40 @@
+{
+
+  "manifest_version": 2,
+  "name": "RJDownload",
+  "version": "1.0",
+
+  "description": "Download any music on https://www.radiojavan.com  - develope by vheidari - contact : vahid-heidari@hotmail.com",
+  "homepage_url": "http://www.github.com/vheidari/RJDownload",
+
+  "icons": {
+    "48": "icons/RJDownload-48.png",
+	"64": "icons/RJDownload-64.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.radiojavan.com/mp3s/mp3/*"],
+      "js": ["/content_scripts/jquery-3.3.1.min.js", "/content_scripts/download.js", "/content_scripts/RJDownload.js"],
+	  "css": ["RJDownload.css"]
+    }
+  ],
+  
+  "permissions": [
+      "<all_urls>",
+      "webRequest"
+    ],
+
+
+  "applications": {
+	"gecko": {
+		"id": "RJDownload@radiojavan.com",
+		"strict_min_version" : "42.0",
+		"strict_max_version" : "61.*",
+		"update_url": "https://example.com/updates.json"
+		
+	}
+  }
+  
+
+}
